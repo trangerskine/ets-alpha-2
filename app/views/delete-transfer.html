@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter your emissions
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/installation-transfer">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Cancel your carbon units
+</h1>
+
+<span class="govuk-caption-l" style="margin-bottom:5px">Remaining allowance</span>
+<h2 class="govuk-heading-l" style="margin-bottom: 5px">{% if data.step == '0a' %}101 500{% elseif data.step == '1' or data.step == '2' %}566{% else %}123 000{% endif %}</h2>
+<p class="govuk-body" style="margin-bottom: 80px;"><a href="#" class="govuk-link disabled">View transfer history</a></p>
+<ol class="app-task-list" style="margin-left: -30px">
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{ data['which-installation']}}</span>
+      Transfer to an existing recipient
+    </h1>
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+
+
+<form class="form" action="/check-existing-transfer" method="post">
+
+  </legend>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="recipient-1">
+      Recipient
+      <span class="govuk-visually-hidden">line 1 of 2</span>
+    </label>
+    <div class="govuk-form-group">
+      <select class="govuk-select" id="recipient-select" name="recipient-select">
+          <option value="Choose a recipient" selected>Choose a recipient</option>
+          <option value="National Grid Gas plc">National Grid Gas plc, EU-100-8976-0-88</option>
+          <option value="Conoco Phillips">Conoco Phillips, EU-100-82543-0-87</option>
+          <option value="Dalkia Utilities Services">Dalkia Utilities Services, EU-100-625343-0-99</option>
+          <option value="Perenco UK Ltd" >Perenco UK Ltd, EU-100-11674-0-56</option>
+          <option value="Polimeri Europa UK Limited">Polimeri Europa UK Limited, EU-100-77732-0-76</option>
+          <option value="De La Rue International Ltd">De La Rue International Ltd, EU-100-63522-0-03</option>
+          <option value="E.ON UK CHP Ltd">E.ON UK CHP Ltd, EU-100-99924-0-23</option>
+          <option value="Citigen (London) Ltd">Citigen (London) Ltd, EU-100-38476-0-24</option>
+          <option value="Procter & Gamble Product Supply (UK) Ltd">Procter & Gamble Product Supply (UK) Ltd, EU-100-4847-0-25</option>
+        </select>
+    </div>
+  </div>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="amount-1">
+      Amount
+    </label>
+    <input class="govuk-input govuk-input--width-5" id="amount-1" name="amount-1" type="number" value="{{ data['amount-1'] }}">
+    <span id="ID-hint" class="govuk-hint">
+      Your balance after transfer is 36,742
+    </span>
+  </div>
+
+
+  <button class="govuk-button">Continue</button>
+
+
+</form>
+
+</fieldset>
+
+  </div>
+</div>
+
+{% endblock %}

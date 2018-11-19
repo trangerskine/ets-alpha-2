@@ -26,8 +26,18 @@
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whichinstallation-1" name="which-installation" type="radio" value="Nevern Power Limited" {{ checked ('which-installation', 'Nevern Power Limited')}}>
-                <label class="govuk-label govuk-radios__label" for="whichinstallation-1">
-                  Nevern Power Limited
+
+                  <form class="form" action="/installation-submit" method="post">
+
+                        <label class="govuk-label govuk-radios__label" for="whichinstallation-1">
+                            Nevern Power Limited
+                          </label>
+                          <span id="ID-hint" class="govuk-hint">
+                            ID Permit UK-E-IN-78934
+                            Account ID EU-100-1111119-0-78
+                          </span>
+              
+                        </div>
                 </label>
               </div>
               <div class="govuk-radios__item">

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/surrender-amount">Back</a>
+  <a class="govuk-back-link" href="/existing-transfer">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -16,68 +16,68 @@
         <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
         Surrender your 2018 emission allowances
       </h1>
-      <form class="form" action="/confirmation-surrender" method="post">
+      <form class="form" action="/confirmation-transfer" method="post">
 
       <p class="govuk-body-l">Confirm the amount of allowance you are surrendering.</p>
-      
+
       {% set number = data['amount-to-surrender'] %}
             {% set newNumber = number.split(',').join('') %}
 
 
       <table class="govuk-table">
-        
-        
+
+
         <tbody class="govuk-table__body">
-          
+
           <tr class="govuk-table__row">
-          
-            
+
+
             <th class="govuk-table__header" scope="row">Your allowance</th>
-            
-          
-            
+
+
+
             <td class="govuk-table__cell">2,500</td>
-            
-          
+
+
           </tr>
-          
+
           <tr class="govuk-table__row">
-          
-            
+
+
             <th class="govuk-table__header" scope="row">Your emissions</th>
-            
-          
-            
+
+
+
             <td class="govuk-table__cell">2,480</td>
-            
-          
+
+
           </tr>
-          
+
           <tr class="govuk-table__row">
-          
-            
+
+
             <th class="govuk-table__header" scope="row">Amount to surrender</th>
-            
-          
-            
+
+
+
             <td class="govuk-table__cell">{{ number }}</td>
-            
-          
+
+
           </tr>
-          
+
           <tr class="govuk-table__row">
-          
-            
+
+
             <th class="govuk-table__header" scope="row">Your allowance after surrender</th>
-            
-          
+
+
             {% set number = data['amount-to-surrender'] %}
             {% set newNumber = number.split(',').join('') %}
             <td class="govuk-table__cell">{{ 2500 - newNumber }}</td>
-            
-          
+
+
           </tr>
-          
+
         </tbody>
       </table>
 

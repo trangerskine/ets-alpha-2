@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/2fa-submit">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/amount-submit" method="post">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Which installation do you want to submit emission for?
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whichinstallation-1" name="which-installation" type="radio" value="Nevern Power Limited" {{ checked ('which-installation', 'Nevern Power Limited')}}>
+                <label class="govuk-label govuk-radios__label" for="whichinstallation-1">
+                  Nevern Power Limited
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whichinstallation-2" name="which-installation" type="radio" value="Scunthorpe Integrated Iron & Steel Works" {{ checked ('which-installation', 'Scunthorpe Integrated Iron & Steel Works')}}>
+                <label class="govuk-label govuk-radios__label" for="whichinstallation-2">
+                  Scunthorpe Integrated Iron & Steel Works
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whichinstallation-3" name="which-installation" type="radio" value="Port Talbot Steelworks" {{ checked ('which-installation', 'Port Talbot Steelworks')}}>
+                <label class="govuk-label govuk-radios__label" for="whichinstallation-3">
+                  Port Talbot Steelworks
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whichinstallation-4" name="which-installation" type="radio" value="Lynemouth Power Station" {{ checked ('which-installation', 'Lynemouth Power Station')}}>
+                <label class="govuk-label govuk-radios__label" for="whichinstallation-4">
+                  Lynemouth Power Station
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

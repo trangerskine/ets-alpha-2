@@ -7,12 +7,5 @@ router.get('/*-submit', function(req, res, next){
   next()
 })
 
-router.get('/*-transfer', function(req, res, next){
-  res.locals['serviceName'] = 'Transfer your ETS allowances'
-  next()
-})
-
-
-
 
 module.exports = router

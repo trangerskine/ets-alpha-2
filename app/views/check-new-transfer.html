@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  Confirm transfer to a new recipient
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,12 +13,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
-        Transfer to a new recepient
+        <span class="govuk-caption-xl">{{ data['installationName']}}</span>
+        Confirm transfer to a new recipient
       </h1>
-      <form class="form" action="/confirmation-transfer-new" method="post">
+      <form class="form" action="/confirmation-new-transfer" method="post">
 
-      <p class="govuk-body-l">Confirm transfer to a new recepient</p>
+      <p class="govuk-body-l"><!-- Confirm transfer to a new recipient --></p>
 
 
       <dl class="app-check-your-answers app-check-your-answers--short">
@@ -90,12 +90,37 @@
 
           </dd>
         </div>
-
-        <div>
+</dl>
+<div>
           <button class="govuk-button">Complete transfer</button>
             </div>
-</dl>
   </form>
+</div>
+  <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          {{ data['installationName'] }}
+          <span class="govuk-caption-m">
+            You have {{ data['allowanceValue'] }} units of allowance
+          </span>
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="start-submit">
+                View transaction history
+              </a>
+            </li>
+            <li>
+              <a href="start-submit">
+                Cancel allowance
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
 
-
+</div>
 {% endblock %}

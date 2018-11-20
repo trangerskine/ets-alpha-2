@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Is Polimeri Europa UK Limited your recipient?
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/new-transfer">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/amount-new-transfer" method="post">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">{{ data['installationName']}}</span>
+        Is Polimeri Europa UK Limited your recipient?
+      </h1>
+
+      <dl class="app-check-your-answers app-check-your-answers--short">
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Recipient name
+          </dt>
+          <dd class="app-check-your-answers__answer">
+             Polimeri Europa UK Limited
+          </dd>
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Recipient ID
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            EU-100-77732-0-76
+          </dd>
+        </div>
+      </dl>
+      
+       
+
+        <button class="govuk-button">Yes, continue</button> 
+
+        <p class="govuk-body"><a href="new-transfer">No, try again</a></p>
+
+      </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          {{ data['installationName'] }}
+          <span class="govuk-caption-m">
+            You have {{ data['allowanceValue'] }} units of allowance
+          </span>
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="start-submit">
+                View transaction history
+              </a>
+            </li>
+            <li>
+              <a href="start-submit">
+                Cancel allowance
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+
+{% endblock %}

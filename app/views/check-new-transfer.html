@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/new-transfer">Back</a>
+  <a class="govuk-back-link" href="/amount-new-transfer">Back</a>
 {% endblock %}
 
 {% block content %}
 
+<style>
+@media (min-width: 48.0625em) {
+  .app-check-your-answers__question {
+    width: 40% !important;
+  }
+}
+</style>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
@@ -27,7 +34,7 @@
             Recipient name
           </dt>
           <dd class="app-check-your-answers__answer">
-             {{ data['recepient-name-1']}}
+            Polimeri Europa UK
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="/new-transfer">
@@ -38,10 +45,10 @@
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Amount ID
+            Recipient ID
           </dt>
           <dd class="app-check-your-answers__answer">
-            {{ data['ID-1']}}
+            EU-100-77732-0-76
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="/new-transfer">
@@ -55,43 +62,37 @@
           Transfer amount
           </dt>
           <dd class="app-check-your-answers__answer">
-            {{ data['amount-transfer-1']}}
+            {{ data['amount-transfer']}}
           </dd>
           <dd class="app-check-your-answers__change">
-            <a href="/new-transfer">
+            <a href="/amount-new-transfer">
               Change<span class="govuk-visually-hidden"> Amount</span>
             </a>
           </dd>
         </div>
-
-        <div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-          Transfer reference
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            {{ data['reference-1']}}
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="/new-transfer">
-              Change<span class="govuk-visually-hidden"> Amount</span>
-            </a>
-          </dd>
-        </div>
-
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
           Balance after transfer
           </dt>
           <dd class="app-check-your-answers__answer">
-
+            {{ data['allowanceValue'] - data['amount-transfer'] }}
           </dd>
           <dd class="app-check-your-answers__change">
 
           </dd>
         </div>
+
 </dl>
-<div>
+<div class="govuk-checkboxes" data-module="checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
+    <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-1">
+      Save this recipient so you can transfer to them again later
+    </label>
+  </div>
+</div>
+<div style="margin-top:40px">
           <button class="govuk-button">Complete transfer</button>
             </div>
   </form>

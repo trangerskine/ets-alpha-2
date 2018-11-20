@@ -13,9 +13,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
-    {% set split = data['whichinstallation'].split(' || ') %}
-
+    {% if data['whichinstallation'] %}
+      {% set split = data['whichinstallation'].split(' || ') %}
+    {% endif %}
    <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">{{ split[0] }}</span>
       Who do you want to transfer allowance to?
@@ -34,19 +34,19 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-1">
-          Existing installation
+          Existing recipient
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          You are authorised to manage this installation or have transferred allowance to it before.
+          You saved this recipient before or it's an installation you manage.
         </span>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-2" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-2">
-          New installation
+          New recipient
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          You have not transferred allowance to this installation before.
+          You have not saved this recipient before.
         </span>
       </div>
           </fieldset>

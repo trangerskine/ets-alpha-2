@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Transfer to a new recipient
+  Who do you want to transfer allowance to?
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@ input, select { display: block; }
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">{{ data['installationName']}}</span>
-      Transfer to a new recipient
+      Who do you want to transfer allowance to?
     </h1>
 
 
@@ -27,62 +27,24 @@ input, select { display: block; }
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
 
 
-<form class="form" action="/check-new-transfer" method="post">
+<form class="form" action="/confirm-recipient-transfer" method="post">
 
   </legend>
 
   <div class="govuk-form-group">
 
     <label class="govuk-label" for="recepient-name">
-      Recipient name
-      <span class="govuk-visually-hidden">line 1 of 2</span>
+      Installation ID of recipient
     </label>
-
-    <input class="govuk-input govuk-input--width-6" id="recepient-name-1" name="recepient-name-1" type="text" value="{{ data['amount-1'] }}">
-
-  </div>
-
-  <div class="govuk-form-group">
-
-    <label class="govuk-label" for="account-id">
-      Account ID
-    </label>
-
-    <input class="govuk-input govuk-input--width-6" id="ID-1" name="ID-1" type="text" value="{{ data['amount-1'] }}">
-
-  </div>
-
-  <div class="govuk-form-group">
-
-    <label class="govuk-label" for="transfer-amount">
-      Transfer amount
-    </label>
-
-
-    <input class="govuk-input govuk-input--width-6" id="amount-transfer-1" name="amount-transfer-1" type="number" value="{{ data['amount-1'] }}">
-  </div>
-
-
-<div class="govuk-form-group">
-
-  <label class="govuk-label" for="transfer-reference">
-    Transfer reference
-      </label>
-
     <span id="ID-hint" class="govuk-hint">
-      e.g. amount sold through brokerage
+      eg 'EU-100-47639-0-78'
     </span>
 
-  <input class="govuk-input govuk-input--width-6" id="reference-1" name="reference-1" type="text" value="{{ data['amount-1'] }}">
-</div>
+    <input class="govuk-input govuk-input--width-6" id="recipient-name" name="recipient-name" type="number" value="{{ data['recipient-name'] }}">
 
-<div>
-  <span id="ID-hint" class="govuk-hint">
-    Your balance after transfer is 36,742
-  </span>
-</div>
+  </div>
 
-  <button class="govuk-button">Continue</button>
+  <button class="govuk-button" >Search for recipient</button>
 
 </form>
 </fieldset>

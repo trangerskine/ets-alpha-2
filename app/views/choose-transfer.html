@@ -13,11 +13,14 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    
+    {% set split = data['whichinstallation'].split(' || ') %}
 
    <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
+      <span class="govuk-caption-xl">{{ split[0] }}</span>
       Who do you want to transfer allowance to?
     </h1>
+
 
 
     <form class="form" action="/choose-transfer-route" method="post">
@@ -25,6 +28,8 @@
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     
+    <input type="hidden" name="installationName" value="{{ split[0] }}">
+    <input type="hidden" name="allowanceValue" value="{{ split[1] }}">
     <div class="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
@@ -57,9 +62,9 @@
 <div class="govuk-grid-column-one-third">
   <aside class="app-related-items" role="complementary">
     <h2 class="govuk-heading-s" id="subsection-title">
-      {{ data['whichinstallation']}}
+      {{ split[0] }}
       <span class="govuk-caption-m">
-        You have 10,321 units of allowance
+        You have {{ split[1] }} units of allowance
       </span>
     </h2>
     <nav role="navigation" aria-labelledby="subsection-title">

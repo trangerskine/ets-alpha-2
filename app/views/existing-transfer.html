@@ -11,11 +11,16 @@
 
 {% block content %}
 
+<style>
+input, select { display: block; }
+</style>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+
     <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
+      <span class="govuk-caption-xl">{{ data['installationName'] }}</span>
       Transfer to an existing recipient
     </h1>
 
@@ -27,26 +32,21 @@
 <form class="form" action="/check-existing-transfer" method="post">
 
   </legend>
-
+  
   <div class="govuk-form-group">
-    <label class="govuk-label" for="recipient-1">
-      Recipient
-      <span class="govuk-visually-hidden">line 1 of 2</span>
-    </label>
-    <div class="govuk-form-group">
-      <select class="govuk-select" id="recipient-select" name="recipient-select">
-          <option value="Choose a recipient" selected>Choose a recipient</option>
-          <option value="National Grid Gas plc">National Grid Gas plc, EU-100-8976-0-88</option>
-          <option value="Conoco Phillips">Conoco Phillips, EU-100-82543-0-87</option>
-          <option value="Dalkia Utilities Services">Dalkia Utilities Services, EU-100-625343-0-99</option>
-          <option value="Perenco UK Ltd" >Perenco UK Ltd, EU-100-11674-0-56</option>
-          <option value="Polimeri Europa UK Limited">Polimeri Europa UK Limited, EU-100-77732-0-76</option>
-          <option value="De La Rue International Ltd">De La Rue International Ltd, EU-100-63522-0-03</option>
-          <option value="E.ON UK CHP Ltd">E.ON UK CHP Ltd, EU-100-99924-0-23</option>
-          <option value="Citigen (London) Ltd">Citigen (London) Ltd, EU-100-38476-0-24</option>
-          <option value="Procter & Gamble Product Supply (UK) Ltd">Procter & Gamble Product Supply (UK) Ltd, EU-100-4847-0-25</option>
-        </select>
-    </div>
+    <label class="govuk-label" for="recipient-1">Recipient</label>
+    <select class="govuk-select" id="recipient-select" name="recipient-select">
+        <option value="Choose a recipient" selected>Choose a recipient</option>
+        <option value="National Grid Gas plc">National Grid Gas plc, EU-100-8976-0-88</option>
+        <option value="Conoco Phillips">Conoco Phillips, EU-100-82543-0-87</option>
+        <option value="Dalkia Utilities Services">Dalkia Utilities Services, EU-100-625343-0-99</option>
+        <option value="Perenco UK Ltd" >Perenco UK Ltd, EU-100-11674-0-56</option>
+        <option value="Polimeri Europa UK Limited">Polimeri Europa UK Limited, EU-100-77732-0-76</option>
+        <option value="De La Rue International Ltd">De La Rue International Ltd, EU-100-63522-0-03</option>
+        <option value="E.ON UK CHP Ltd">E.ON UK CHP Ltd, EU-100-99924-0-23</option>
+        <option value="Citigen (London) Ltd">Citigen (London) Ltd, EU-100-38476-0-24</option>
+        <option value="Procter & Gamble Product Supply (UK) Ltd">Procter & Gamble Product Supply (UK) Ltd, EU-100-4847-0-25</option>
+    </select>
   </div>
 
 
@@ -54,10 +54,35 @@
     <label class="govuk-label" for="amount-1">
       Amount
     </label>
-    <input class="govuk-input govuk-input--width-5" id="amount-1" name="amount-1" type="number" value="{{ data['amount-1'] }}">
-    <span id="ID-hint" class="govuk-hint">
-      Your balance after transfer is 36,742
+    <span id="ID-hint" class="govuk-hint" >
+      You will have <span id="newnumber">{{ newNumber }}</span> units of allowance after this transfer
     </span>
+    <input class="govuk-input govuk-input--width-5 myTextInput" id="amount-1" name="amount-1" type="number" value="{{ data['amount-1'] }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+      
+      var number = $('#amount-1').val();  
+      var newNumber = {{ data['allowanceValue'] }};
+      if ( number ) {
+        newNumber =  {{ data['allowanceValue'] }} - number;
+      } else if ( !number ) {
+        number = 0
+      }
+      $('#newnumber').text( newNumber );
+
+      $('input.myTextInput').on('input',function(e){
+        number = $('#amount-1').val();  
+        if ( number ) {
+          newNumber =  {{ data['allowanceValue'] }} - number;
+        } else if ( !number ) {
+          number = 0
+        }
+        $('#newnumber').text( newNumber );
+      });
+      
+    </script>
+
   </div>
 
 
@@ -68,6 +93,31 @@
 
 </fieldset>
 
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        {{ data['installationName'] }}
+        <span class="govuk-caption-m">
+          You have {{ data['allowanceValue'] }} units of allowance
+        </span>
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="start-submit">
+              View transaction history
+            </a>
+          </li>
+          <li>
+            <a href="start-submit">
+              Cancel allowance
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
   </div>
 </div>
 

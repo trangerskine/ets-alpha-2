@@ -13,7 +13,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
+        <span class="govuk-caption-xl">{{ data['installationName']}}</span>
         Check your information before you propose a transfer
       </h1>
 
@@ -32,7 +32,7 @@
             Recipient
           </dt>
           <dd class="app-check-your-answers__answer">
-             {{ data['recipient-1']}}
+             {{ data['recipient-select']}}
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="/existing-transfer">
@@ -60,11 +60,14 @@
            New balance
           </dt>
           <dd class="app-check-your-answers__answer">
-            {{ data['amount-1']}}
+            {% set newNumber = data['amount-1'] %}
+            {{ data['allowanceValue'] - newNumber }}
+            </script>
+            
+
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="/existing-transfer">
-
             </a>
           </dd>
         </div>
@@ -80,6 +83,31 @@
         Propose transfer
       </a>
 
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          {{ data['installationName'] }}
+          <span class="govuk-caption-m">
+            You have {{ data['allowanceValue'] }} units of allowance
+          </span>
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="start-submit">
+                View transaction history
+              </a>
+            </li>
+            <li>
+              <a href="start-submit">
+                Cancel allowance
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
     </div>
   </div>
 {% endblock %}

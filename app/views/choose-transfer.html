@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/installation-transfer">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
+      Who do you want to transfer allowance to?
+    </h1>
+
+
+    <form class="form" action="/existing-transfer" method="post">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichinstallation-1" name="whichinstallation" type="radio" value="Nevern Power Limited" {{ checked ('whichinstallation', 'Nevern Power Limited')}}>
+        <label class="govuk-label govuk-radios__label " for="whichinstallation-1">
+          Existing installation
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          You are authorised to manage this installation or have transferred allowance to it before.
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works')}}>
+        <label class="govuk-label govuk-radios__label " for="whichinstallation-2">
+          New installation
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          You have not transferred allowance to this installation before.
+        </span>
+      </div>
+          </fieldset>
+        </div>
+
+
+<button class="govuk-button">Continue</button>
+
+</form>
+
+</div>
+
+<div class="govuk-grid-column-one-third">
+  <aside class="app-related-items" role="complementary">
+    <h2 class="govuk-heading-s" id="subsection-title">
+      {{ data['whichinstallation']}}
+      <span class="govuk-caption-m">
+        You have 10,321 units of allowance
+      </span>
+    </h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+          <a href="start-submit">
+            View transaction history
+          </a>
+        </li>
+        <li>
+          <a href="start-submit">
+            Cancel allowance
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+</div>
+</div>
+
+
+{% endblock %}

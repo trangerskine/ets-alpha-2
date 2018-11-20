@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter your emissions
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/choose-transferee">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{ data['which-installation']}}</span>
+      Transfer to a new recepient
+    </h1>
+
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+
+
+<form class="form" action="/" method="post">
+
+  </legend>
+
+  <div class="govuk-form-group">
+
+    <label class="govuk-label" for="recepient-name">
+      Recepient name
+      <span class="govuk-visually-hidden">line 1 of 2</span>
+    </label>
+
+    <input class="govuk-input govuk-input--width-6" id="name-1" name="name-1" type="number" value="{{ data['amount-1'] }}">
+
+  </div>
+
+  <div class="govuk-form-group">
+
+    <label class="govuk-label" for="account-id">
+      Account ID
+    </label>
+
+    <input class="govuk-input govuk-input--width-6" id="ID-1" name="ID-1" type="number" value="{{ data['amount-1'] }}">
+
+  </div>
+
+  <div class="govuk-form-group">
+
+    <label class="govuk-label" for="transfer-amount">
+      Transfer amount
+    </label>
+
+
+    <input class="govuk-input govuk-input--width-6" id="amount-transfer" name="amount-transfer" type="number" value="{{ data['amount-1'] }}">
+  </div>
+
+
+<div class="govuk-form-group">
+
+  <label class="govuk-label" for="transfer-reference">
+    Transfer reference
+      </label>
+
+    <span id="ID-hint" class="govuk-hint">
+      e.g. amount sold through brokerage
+    </span>
+
+  <input class="govuk-input govuk-input--width-6" id="reference-1" name="reference-1" type="number" value="{{ data['amount-1'] }}">
+</div>
+
+<div>
+  <span id="ID-hint" class="govuk-hint">
+    Your balance after transfer is 36,742
+  </span>
+</div>
+
+  <button class="govuk-button">Continue</button>
+
+</form>
+</fieldset>
+
+  </div>
+</div>
+
+{% endblock %}

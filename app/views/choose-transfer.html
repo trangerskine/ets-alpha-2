@@ -20,15 +20,15 @@
     </h1>
 
 
-    <form class="form" action="/existing-transfer" method="post">
+    <form class="form" action="/choose-transfer-route" method="post">
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     
     <div class="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichinstallation-1" name="whichinstallation" type="radio" value="Nevern Power Limited" {{ checked ('whichinstallation', 'Nevern Power Limited')}}>
-        <label class="govuk-label govuk-radios__label " for="whichinstallation-1">
+        <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
+        <label class="govuk-label govuk-radios__label " for="whichtransfer-1">
           Existing installation
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
@@ -36,8 +36,8 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works')}}>
-        <label class="govuk-label govuk-radios__label " for="whichinstallation-2">
+        <input class="govuk-radios__input" id="whichtransfer-2" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
+        <label class="govuk-label govuk-radios__label " for="whichtransfer-2">
           New installation
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">

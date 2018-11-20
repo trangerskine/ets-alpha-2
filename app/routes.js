@@ -10,6 +10,13 @@ router.get('/*-transfer', function(req, res, next){
   res.locals['serviceName'] = 'Check and transfer allowance for ETS'
   next()
 })
-
+router.post("/choose-transfer-route", function(req,res){
+  var whichTransfer = req.session.data['whichtransfer']
+  if (whichTransfer == "Existing installation"){
+    res.redirect("/existing-transfer")
+  } else if (whichTransfer == "New installation") {
+    res.redirect("/new-transfer")
+  }
+})
 
 module.exports = router

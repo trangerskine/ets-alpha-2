@@ -27,14 +27,14 @@
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
-    
+
     <input type="hidden" name="installationName" value="{{ split[0] }}">
     <input type="hidden" name="allowanceValue" value="{{ split[1] }}">
     <div class="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-1">
-          Existing recipient
+          Existing recepient
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
           You saved this recipient before or it's an installation you manage.
@@ -43,7 +43,7 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-2" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-2">
-          New recipient
+          New recepient
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
           You have not saved this recipient before.
@@ -68,7 +68,7 @@
       </span>
     </h2>
     <nav role="navigation" aria-labelledby="subsection-title">
-      
+
       <ul class="govuk-list govuk-!-font-size-16">
         <li>
           <a href="transaction-history-transfer">

@@ -22,7 +22,6 @@ input, select { display: block; }
       Who do you want to transfer allowance to?
     </h1>
 
-
 <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
 
@@ -40,14 +39,30 @@ input, select { display: block; }
       eg 'EU-100-47639-0-78'
     </span>
 
-    <input class="govuk-input govuk-input--width-6" id="recipient-name" name="recipient-name" type="number" value="{{ data['recipient-name'] }}">
+    <input class="govuk-input" id="recipient-name" name="recipient-name" type="number" value="{{ data['recipient-name'] }}">
+
+
 
   </div>
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Help with installation ID
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
+    </div>
+  </details>
+
 
   <button class="govuk-button" >Search for recipient</button>
 
 </form>
 </fieldset>
+  
+
 
   </div>
   {% include "includes/sidebar.html" %}

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="{% if data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' %}/choose-unit-transfer{% else %}/installation-transfer{% endif %}">Back</a>
+  <a class="govuk-back-link" href="/installation-transfer">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -18,12 +18,12 @@
     {% endif %}
    <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">{{ split[0] }}</span>
-      Who do you want to transfer allowance to?
+      Which unit of allowance do you want to transfer?
     </h1>
 
 
 
-    <form class="form" action="/choose-transfer-route" method="post">
+    <form class="form" action="/choose-transfer" method="post">
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
@@ -34,19 +34,37 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-1">
-          Existing recipient
+          General unit
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          You saved this recipient before or it's an installation you manage.
+          23871 units of allowance
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichtransfer-3" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
+        <label class="govuk-label govuk-radios__label " for="whichtransfer-3">
+          Assigned Amount Unit (AAU)
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          212 units of allowance
         </span>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichtransfer-2" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
         <label class="govuk-label govuk-radios__label " for="whichtransfer-2">
-          New recipient
+          Emission Reduction Unit (ERU)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          You have not saved this recipient before.
+          133 units of allowance
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichtransfer-5" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
+        <label class="govuk-label govuk-radios__label " for="whichtransfer-5">
+          Certified Emissions Reductions (CER)
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          98 units of allowance
         </span>
       </div>
           </fieldset>

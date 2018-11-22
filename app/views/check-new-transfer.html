@@ -43,6 +43,8 @@
           </dd>
         </div>
 
+
+
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Recipient ID
@@ -57,9 +59,25 @@
           </dd>
         </div>
 
+        {% if data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' %}
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+            Unit
+            </dt>
+            <dd class="app-check-your-answers__answer">
+              {{ data['unit']}}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/amount-new-transfer">
+                Change<span class="govuk-visually-hidden"> Amount</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-          Transfer amount
+          Amount
           </dt>
           <dd class="app-check-your-answers__answer">
             {{ data['amount-transfer']}}

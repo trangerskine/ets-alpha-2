@@ -23,4 +23,16 @@ router.post("/choose-transfer-route", function(req,res){
 
 })
 
+router.post("/choose-installation-route", function(req,res){
+
+  var installationName = req.session.data['installationName']
+
+  if (installationName == "Scunthorpe Integrated Iron & Steel Works"){
+    res.redirect("/choose-unit-transfer")
+  } else {
+    res.redirect("/choose-transfer")
+  }
+
+})
+
 module.exports = router

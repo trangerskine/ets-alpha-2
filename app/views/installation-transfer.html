@@ -34,7 +34,7 @@
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works || 23871" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works || 23871')}} data-number="23871">
+                <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works || 23871 || 158" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works || 23871 || 158')}} data-number="23871">
                 <label class="govuk-label govuk-radios__label" for="whichinstallation-2">
                   Scunthorpe Integrated Iron & Steel Works (EU-100-77732-0-76)
                   <span id="ID-hint" class="govuk-hint">
@@ -67,6 +67,29 @@
                 </label>
               </div>
             </div>
+
+            <input type="hidden" name="installationName" id="installationName">
+            <input type="hidden" name="allowanceValue" id="allowanceValue">
+            <input type="hidden" name="allowanceIntlValue" id="allowanceIntlValue">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+              
+              var value = $( "input[name=whichinstallation]:checked" ).val();
+              var split = value.split(' || ');
+              console.log(split)
+              $('#installationName').val( split[0] );
+              $('#allowanceValue').val( split[1] );
+              $('#allowanceIntlValue').val( split[2] );
+
+              $('input:radio').on('change',function(e){  
+                value = $( "input[name=whichinstallation]:checked" ).val();
+                split = value.split(' || ');
+                console.log(split)
+                $('#installationName').val( split[0] );
+                $('#allowanceValue').val( split[1] );
+                $('#allowanceIntlValue').val( split[2] );
+              });
+            </script>
           </fieldset>
         </div>
 

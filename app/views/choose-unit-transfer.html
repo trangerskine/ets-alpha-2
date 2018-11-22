@@ -13,11 +13,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {% if data['whichinstallation'] %}
-      {% set split = data['whichinstallation'].split(' || ') %}
-    {% endif %}
    <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">{{ split[0] }}</span>
+      <span class="govuk-caption-xl">{{ data['installationName'] }}</span>
       Which unit of allowance do you want to transfer?
     </h1>
 
@@ -28,12 +25,10 @@
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     
-    <input type="hidden" name="installationName" value="{{ split[0] }}">
-    <input type="hidden" name="allowanceValue" value="{{ split[1] }}">
     <div class="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichtransfer-1" name="whichtransfer" type="radio" value="Existing installation" {{ checked ('whichtransfer', 'Existing installation')}}>
-        <label class="govuk-label govuk-radios__label " for="whichtransfer-1">
+        <input class="govuk-radios__input" id="whichunit-1" name="whichunit" type="radio" value="General unit" {{ checked ('whichunit', 'General unit')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-1">
           General unit
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
@@ -41,8 +36,8 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichtransfer-3" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
-        <label class="govuk-label govuk-radios__label " for="whichtransfer-3">
+        <input class="govuk-radios__input" id="whichunit-3" name="whichunit" type="radio" value="Assigned Amount Unit (AAU)" {{ checked ('whichunit', 'Assigned Amount Unit (AAU)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-3">
           Assigned Amount Unit (AAU)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
@@ -50,8 +45,8 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichtransfer-2" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
-        <label class="govuk-label govuk-radios__label " for="whichtransfer-2">
+        <input class="govuk-radios__input" id="whichunit-2" name="whichunit" type="radio" value="Emission Reduction Unit (ERU)" {{ checked ('whichunit', 'Emission Reduction Unit (ERU)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-2">
           Emission Reduction Unit (ERU)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
@@ -59,8 +54,8 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichtransfer-5" name="whichtransfer" type="radio" value="New installation" {{ checked ('whichtransfer', 'New installation')}}>
-        <label class="govuk-label govuk-radios__label " for="whichtransfer-5">
+        <input class="govuk-radios__input" id="whichunit-5" name="whichunit" type="radio" value="Certified Emissions Reductions (CER)" {{ checked ('whichunit', 'Certified Emissions Reductions (CER)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-5">
           Certified Emissions Reductions (CER)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">

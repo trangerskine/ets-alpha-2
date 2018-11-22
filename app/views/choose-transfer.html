@@ -13,11 +13,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {% if data['whichinstallation'] %}
-      {% set split = data['whichinstallation'].split(' || ') %}
-    {% endif %}
    <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">{{ split[0] }}</span>
+      <span class="govuk-caption-xl">{{ data['installationName'] }}</span>
       Who do you want to transfer allowance to?
     </h1>
 

@@ -43,6 +43,8 @@
           </dd>
         </div>
 
+
+
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Recipient ID
@@ -57,9 +59,25 @@
           </dd>
         </div>
 
+        {% if data['allowanceIntlValue'] %}
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+            Unit
+            </dt>
+            <dd class="app-check-your-answers__answer">
+              {{ data['whichunit']}}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/choose-unit-transfer">
+                Change<span class="govuk-visually-hidden"> Amount</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-          Transfer amount
+          Amount
           </dt>
           <dd class="app-check-your-answers__answer">
             {{ data['amount-transfer']}}
@@ -97,31 +115,7 @@
             </div>
   </form>
 </div>
-  <div class="govuk-grid-column-one-third">
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-s" id="subsection-title">
-          {{ data['installationName'] }}
-          <span class="govuk-caption-m">
-            You have {{ data['allowanceValue'] }} units of allowance
-          </span>
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="transaction-history-transfer">
-                View transaction history
-              </a>
-            </li>
-            <li>
-              <a href="start-submit">
-                Cancel allowance
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-    </div>
+{% include "includes/sidebar.html" %}
 
 </div>
 {% endblock %}

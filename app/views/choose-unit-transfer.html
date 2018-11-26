@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who do you want to transfer allowance to?
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/installation-transfer">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{ data['installationName'] }}</span>
+      Which unit of allowance do you want to transfer?
+    </h1>
+
+
+
+    <form class="form" action="/choose-transfer" method="post">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichunit-1" name="whichunit" type="radio" value="General unit" {{ checked ('whichunit', 'General unit')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-1">
+          General unit
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          23871 units of allowance
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichunit-3" name="whichunit" type="radio" value="Assigned Amount Unit (AAU)" {{ checked ('whichunit', 'Assigned Amount Unit (AAU)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-3">
+          Assigned Amount Unit (AAU)
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          212 units of allowance
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichunit-2" name="whichunit" type="radio" value="Emission Reduction Unit (ERU)" {{ checked ('whichunit', 'Emission Reduction Unit (ERU)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-2">
+          Emission Reduction Unit (ERU)
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          133 units of allowance
+        </span>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichunit-5" name="whichunit" type="radio" value="Certified Emissions Reductions (CER)" {{ checked ('whichunit', 'Certified Emissions Reductions (CER)')}}>
+        <label class="govuk-label govuk-radios__label " for="whichunit-5">
+          Certified Emissions Reductions (CER)
+        </label>
+        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
+          98 units of allowance
+        </span>
+      </div>
+          </fieldset>
+        </div>
+
+
+<button class="govuk-button">Continue</button>
+
+</form>
+
+</div>
+{% include "includes/sidebar.html" %}
+</div>
+
+
+{% endblock %}

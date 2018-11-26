@@ -49,10 +49,9 @@ input, select { display: block; }
     </select>
   </div>
 
-
   <div class="govuk-form-group">
     <label class="govuk-label" for="amount-1">
-      Amount
+      Amount{% if data['allowanceIntlValue'] %} of {{ data['whichunit'] }} unit{% endif %}
     </label>
     <span id="ID-hint" class="govuk-hint" >
       You will have <span id="newnumber">{{ newNumber }}</span> units of allowance after this transfer
@@ -94,31 +93,7 @@ input, select { display: block; }
 </fieldset>
 
   </div>
-  <div class="govuk-grid-column-one-third">
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-s" id="subsection-title">
-        {{ data['installationName'] }}
-        <span class="govuk-caption-m">
-          You have {{ data['allowanceValue'] }} units of allowance
-        </span>
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        
-        <ul class="govuk-list govuk-!-font-size-16">
-          <li>
-            <a href="transaction-history-transfer">
-              View transaction history
-            </a>
-          </li>
-          <li>
-            <a href="start-submit">
-              Cancel allowance
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  </div>
+  {% include "includes/sidebar.html" %}
 </div>
 
 {% endblock %}

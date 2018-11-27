@@ -3,11 +3,11 @@
     <h2 class="govuk-heading-s" id="subsection-title">
         {{ data['installationName'] }}
       <span class="govuk-caption-m">
-        {{ data['allowanceValue'] }} units of {% if data['allowanceIntlValue'] %}general {% endif %}allowance{% if data['allowanceIntlValue'] %}<br/> 158 units of international allowance{% endif %}
+        {{ data['allowanceValue'] }} units of {% if data['allowanceIntlValue'] %}general {% endif %}allowance{% if data['allowanceIntlValue'] %}<br/> 158 units of KP units{% endif %}
       </span>
     </h2>
     <nav role="navigation" aria-labelledby="subsection-title">
-      
+
       <ul class="govuk-list govuk-!-font-size-16">
         <li>
           <a href="transaction-history-transfer">
@@ -15,8 +15,13 @@
           </a>
         </li>
         <li>
-          <a href="start-submit">
-            Cancel allowance
+          <a href="/emission-history-submit">
+            View emission and surrender history
+          </a>
+        </li>
+        <li>
+          <a href="/delete-transfer">
+            Delete allowance
           </a>
         </li>
       </ul>

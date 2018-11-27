@@ -15,7 +15,7 @@
   <div class="govuk-grid-column-two-thirds">
    <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">{{ data['installationName'] }}</span>
-      Which unit of allowance do you want to transfer?
+      Which carbon unit do you want to transfer?
     </h1>
 
 
@@ -24,24 +24,24 @@
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
-    
+
     <div class="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichunit-1" name="whichunit" type="radio" value="General unit" {{ checked ('whichunit', 'General unit')}}>
         <label class="govuk-label govuk-radios__label " for="whichunit-1">
-          General unit
+          General allowance
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          23871 units of allowance
+          23,871 units of general allowance
         </span>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whichunit-3" name="whichunit" type="radio" value="Assigned Amount Unit (AAU)" {{ checked ('whichunit', 'Assigned Amount Unit (AAU)')}}>
         <label class="govuk-label govuk-radios__label " for="whichunit-3">
-          Assigned Amount Unit (AAU)
+          Certified Emissions Reductions (CER)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          212 units of allowance
+          138 units of CERs
         </span>
       </div>
       <div class="govuk-radios__item">
@@ -50,18 +50,10 @@
           Emission Reduction Unit (ERU)
         </label>
         <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          133 units of allowance
+          20 units of ERUs
         </span>
       </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichunit-5" name="whichunit" type="radio" value="Certified Emissions Reductions (CER)" {{ checked ('whichunit', 'Certified Emissions Reductions (CER)')}}>
-        <label class="govuk-label govuk-radios__label " for="whichunit-5">
-          Certified Emissions Reductions (CER)
-        </label>
-        <span id="sign-in-1-item-hint" class="govuk-hint govuk-radios__hint">
-          98 units of allowance
-        </span>
-      </div>
+
           </fieldset>
         </div>
 

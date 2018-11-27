@@ -22,9 +22,23 @@
 
       <h2 class="govuk-heading-m" style="margin-top:40px">What happens next</h2>
       <p class="govuk-body">We have sent you a confirmation email.</p>
-      <p class="govuk-body">Your emissions will need to be verified by 31 March 2019. </p>
-      <p class="govuk-body">We have sent a notification to the verifier you have selected. </p>
-      <p class="govuk-body"> To be compliant you need to also surrender your allowance by 30 April 2019. You will find this information in your Verified Annual Emissions Report.
+      <p class="govuk-body">Your 2018 emissions still needs to be verified by <strong>
+      {% if data['verifier-radio'] == 'Other' %}
+        {{ data['verifier-select'] }}
+      {% else %}
+        {{ data['verifier-radio'] }}
+      {% endif %}</strong>before 31 March 2019. We have sent them a notification email.</p>
+
+      <p class="govuk-body"> You will also need to surrender enough allowances to cover your reported emissions by 30 April 2019 to be compliance with ETS.
+
+        <p>You can now:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+
+            <li><a href="/installation-transfer">Make an allowance transfer</a></li>
+            <li><a href="/installation-submit">Submit emissions data for another installation or aircraft operator</a></li>
+            <li><a href="/installation-surrender">Surrender allowance for your installation or aircraft operator</a></li>
+        </ul>
 
     </div>
   </div>

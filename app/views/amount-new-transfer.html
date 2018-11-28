@@ -36,7 +36,7 @@ input, select { display: block; }
   <div class="govuk-form-group">
 
     <label class="govuk-label" for="transfer-amount">
-      Amount{% if data['allowanceIntlValue'] %} of {{ data['whichunit'] }} unit{% endif %}
+      Amount{% if data['unitName'] %} of {{ data['unitName'] }} unit{% endif %}
     </label>
 
     <span id="ID-hint" class="govuk-hint">
@@ -49,25 +49,32 @@ input, select { display: block; }
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       
-      var number = $('#amount-transfer').val();  
-      console.log(number);
-      var newNumber = {{ data['allowanceValue'] }};
+      var number = $('#amount-transfer').val();
+      var amountYouHave;
+      var amountYouWillHave;
+
+      if ( {{ data['allowanceUnitValue'] }} ) {
+        amountYouHave = {{ data['allowanceUnitValue'] }}
+      } else {
+        amountYouHave = {{ data['allowanceValue'] }}
+      }
+
       if ( number ) {
-        newNumber =  {{ data['allowanceValue'] }} - number;
+        amountYouWillHave = amountYouHave - number;
       } else if ( !number ) {
         number = 0
       }
-      $('#newnumber').text( newNumber );
+    
+      $('#newnumber').text( amountYouWillHave );
 
       $('input.myTextInput').on('input',function(e){
-        console.log('oi');
         number = $('#amount-transfer').val();  
         if ( number ) {
-          newNumber =  {{ data['allowanceValue'] }} - number;
+          amountYouWillHave = amountYouHave - number;
         } else if ( !number ) {
           number = 0
         }
-        $('#newnumber').text( newNumber );
+        $('#newnumber').text( amountYouWillHave );
       });
       
     </script>

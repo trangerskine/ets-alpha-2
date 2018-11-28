@@ -57,13 +57,13 @@
           </dd>
         </div>
 
-        {% if data['allowanceIntlValue'] %}
+        {% if data['unitName'] %}
           <div class="app-check-your-answers__contents">
             <dt class="app-check-your-answers__question">
             Unit
             </dt>
             <dd class="app-check-your-answers__answer">
-              {{ data['whichunit']}}
+              {{ data['unitName']}}
             </dd>
             <dd class="app-check-your-answers__change">
               <a href="/choose-unit-transfer">
@@ -92,7 +92,11 @@
           Balance after transfer
           </dt>
           <dd class="app-check-your-answers__answer">
-            {{ data['allowanceValue'] - data['amount-transfer'] }}
+            {% if data['allowanceUnitValue'] %}
+              {{ data['allowanceUnitValue'] - data['amount-transfer'] }}
+            {% else %}
+              {{ data['allowanceValue'] - data['amount-transfer'] }}
+            {% endif %}
           </dd>
           <dd class="app-check-your-answers__change">
 

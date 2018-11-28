@@ -22,14 +22,22 @@
 
       <h2 class="govuk-heading-m" style="margin-top:40px">What happens next</h2>
       <p class="govuk-body">We have sent you a confirmation email.</p>
-      <p class="govuk-body">Your 2018 emissions still needs to be verified by <strong>
+      <p class="govuk-body">Your 2018 emissions still need to be verified by <strong>
       {% if data['verifier-radio'] == 'Other' %}
         {{ data['verifier-select'] }}
       {% else %}
         {{ data['verifier-radio'] }}
       {% endif %}</strong>before 31 March 2019. We have sent them a notification email.</p>
 
-      <p class="govuk-body"> You will also need to surrender enough allowances to cover your reported emissions by 30 April 2019 to be compliance with ETS.
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You will also need to surrender enough allowances to cover your reported emissions by 30 April 2019 to be compliant with ETS.
+
+          </strong>
+        </div>
 
         <p>You can now:</p>
 

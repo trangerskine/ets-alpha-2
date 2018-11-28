@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check your answers
+  Confirm transfer to an existing recipient
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,13 +14,9 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">{{ data['installationName']}}</span>
-        Check your information before you propose a transfer
+        Confirm transfer to an existing recipient
       </h1>
 
-      <!-- only add a heading for a list if there is more than one list -->
-      <h2 class="govuk-heading-m">
-        Your transfer
-      </h2>
 
       <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
       <!--   * `app-check-your-answers--short` for short questions -->
@@ -40,6 +36,21 @@
             </a>
           </dd>
         </div>
+        {% if data['recipient-select'] != 'Choose a recipient' %}
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Recipient ID
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ data['recipient-name'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="/new-transfer">
+              Change<span class="govuk-visually-hidden"> Amount</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
 
         {% if data['unitName'] %}
           <div class="app-check-your-answers__contents">
@@ -92,14 +103,13 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Now propose your transfer</h2>
 
-      <p>
+      <p style="margin-top:-30px">
         Your transfer will be sent to another representative on your account to be approved.
       </p>
 
       <a class="govuk-button" href="/confirmation-transfer" role="button">
-        Propose transfer
+        Submit transfer and send for approval
       </a>
 
     </div>

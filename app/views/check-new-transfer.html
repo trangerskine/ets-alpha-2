@@ -20,7 +20,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">{{ data['which-installation']}}</span>
+        <span class="govuk-caption-xl">{{ data['installationName']}}</span>
         Confirm transfer to a new recipient
       </h1>
       <form class="form" action="/confirmation-new-transfer" method="post">
@@ -104,6 +104,9 @@
         </div>
 
 </dl>
+<p style="margin-top:-30px">
+  Your transfer will be sent to another representative on your account to be approved.
+</p>
 <div class="govuk-checkboxes" data-module="checkboxes">
   <div class="govuk-checkboxes__item">
     <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
@@ -113,7 +116,7 @@
   </div>
 </div>
 <div style="margin-top:40px">
-          <button class="govuk-button">Complete transfer</button>
+          <button class="govuk-button">Submit transfer and send for approval</button>
             </div>
   </form>
 </div>

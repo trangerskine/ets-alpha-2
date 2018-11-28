@@ -20,8 +20,8 @@
       </h1>
       <form class="form" action="/check-2-surrender" method="post">
 
-      <p class="govuk-body" >You need to surrender <strong>2,160</strong> allowance to cover your greenhouse gas emissions in 2018. Your allowances need to be surrendered by 30 April 2019.</p>
-      <p class="govuk-body"style="margin-bottom:30px">If you don't have enough allowance you may need to <a href="#">acquire additional allowance</a>.</p>
+      <p class="govuk-body" >You need to surrender <strong>2,160</strong> allowance for 2018 ETS compliance period. This figure is made up of your reported emissions for 2018 and any allowance you <a href="/transaction-history-transfer"> over surrendered or under surrendered from last year.</a></p>
+      <p class="govuk-body"style="margin-bottom:30px">You need to surrender the full amount by 30 April 2019. If you don't have enough allowance you may need to <a href="#">acquire additional allowance</a>.</p>
 
       {% from "table/macro.njk" import govukTable %}
       <table class="govuk-table">
@@ -31,7 +31,7 @@
             <td class="govuk-table__cell govuk-table__cell--numeric" style="padding-right:5px;">2,480</td>
           </tr>
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Carry over surrendered amount from last year</th>
+            <th class="govuk-table__header" scope="row">Over surrendered amount from last year</th>
             <td class="govuk-table__cell govuk-table__cell--numeric" style="padding-right:5px;">320</td>
           </tr>
           <tr class="govuk-table__row">

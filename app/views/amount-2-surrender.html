@@ -15,10 +15,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">{{ data['whichinstallation-submit']}}</span>
+            <span class="govuk-caption-xl">{{ data['whichinstallation']}}</span>
         Surrender your 2018 emission allowance
       </h1>
-      <form class="form" action="/check-amount-surrender" method="post">
+      <form class="form" action="/check-2-surrender" method="post">
 
       <p class="govuk-body" >You need to surrender <strong>2,160</strong> allowance to cover your greenhouse gas emissions in 2018. Your allowances need to be surrendered by 30 April 2019.</p>
       <p class="govuk-body"style="margin-bottom:30px">If you don't have enough allowance you may need to <a href="#">acquire additional allowance</a>.</p>
@@ -27,7 +27,7 @@
       <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">2018 emissions</th>
+            <th class="govuk-table__header" scope="row">Your 2018 reported emissions</th>
             <td class="govuk-table__cell govuk-table__cell--numeric" style="padding-right:5px;">2,480</td>
           </tr>
           <tr class="govuk-table__row">
@@ -35,7 +35,7 @@
             <td class="govuk-table__cell govuk-table__cell--numeric" style="padding-right:5px;">320</td>
           </tr>
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">You need to surrender</th>
+            <th class="govuk-table__header" scope="row">Total allowance to be surrendered</th>
             <td class="govuk-table__cell govuk-table__cell--numeric" style="padding-right:7px;">2,160</td>
           </tr>
         </tbody>
@@ -50,20 +50,23 @@
         <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
           <div class="govuk-radios govuk-radios--conditional" data-module="radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-1" name="verifier-radio" type="radio" value="Lucideon" data-aria-controls="conditional-how-contacted-conditional-1" {{ checked ('verifier-radio', 'Lucideon')}}>
+              <input class="govuk-radios__input" id="how-surrender-conditional-1" name="surrender-radio" type="radio" value="2,160" data-aria-controls="conditional-how-surrender-conditional-1" {{ checked ('surrender-radio', '2,160')}}>
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
                 Yes, surrender 2,160
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="verifier-radio" type="radio" value="Other" data-aria-controls="conditional-how-contacted-conditional-2"  {{ checked ('verifier-radio', 'Other')}}>
+              <input class="govuk-radios__input" id="how-surrender-conditional-2" name="surrender-radio" type="radio" value="Other" data-aria-controls="conditional-how-surrender-conditional-2"  {{ checked ('surrender-radio', 'Other')}}>
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                 No, I want to choose how much to surrender
               </label>
             </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-surrender-conditional-2">
               <div class="govuk-form-group">
                   <input class="govuk-input govuk-input--width-5 number" id="amount-to-surrender" name="amount-to-surrender" type="text" style="text-align:right;font-family: "ntatabularnumbers", "nta", Arial, sans-serif;" value="{{ data['amount-to-surrender'] }}">
+                  <span id="balance" class="govuk-hint">
+                    You have 2,500 allowances
+                    </span>
               </div>
 
             </div>

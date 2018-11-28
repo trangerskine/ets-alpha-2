@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/amount-2-surrender">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+          Confirm your surrendered amount
+      </h1>
+      {% set number = data['amount-to-surrender'] %}
+            {% set newNumber = number.split(',').join('') %}
+      <!-- only add a heading for a list if there is more than one list -->
+      <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+      <!--   * `app-check-your-answers--short` for short questions -->
+      <!--   * `app-check-your-answers__questions-long` for long questions -->
+      <!--   * none for single group of q&a -->
+      <dl class="app-check-your-answers app-check-your-answers--short">
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+          Total amount you need to surrender
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            2,160
+          </dd>
+          <dd class="app-check-your-answers__change">
+
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+          Amount you choose to surrender
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ number }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="amount-submit">
+              Change<span class="govuk-visually-hidden"> surrender amount </span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <div class="govuk-checkboxes" data-module="checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
+          <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-1">
+            Confirm you want to over surrendered by 150 allowances
+          </label>
+        </div>
+      </div>
+    <div style="margin-top:40px">
+    </div>
+
+
+
+      <a class="govuk-button" href="/confirmation-surrender" role="button">
+        Submit for approval
+      </a>
+
+    </div>
+  </div>
+{% endblock %}

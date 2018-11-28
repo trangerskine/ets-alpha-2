@@ -31,7 +31,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="everything" name="type" type="radio" value="everything" checked="checked">
+              <input class="govuk-radios__input" id="everything" name="type" type="radio" value="everything">
               <label class="govuk-label govuk-radios__label" for="everything">
                 Everything
               </label>
@@ -43,7 +43,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="submissions" name="type" type="radio" value="submissions">
+              <input class="govuk-radios__input" id="submissions" name="type" type="radio" value="submissions" checked="checked">
               <label class="govuk-label govuk-radios__label" for="submissions">
                 Submissions
               </label>
@@ -55,43 +55,60 @@
 
 
 
-
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row govuk-!-font-size-16">
-            <th class="govuk-table__header" scope="col">Date</th>
-            <th class="govuk-table__header" scope="col">Type</th>
-            <th class="govuk-table__header" scope="col">Description</th>
-            <th class="govuk-table__header" scope="col">Details</th>
+            <th class="govuk-table__header" scope="col">Date submitted</th>
+            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Year</th>
+            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Emissions reported</th>
+            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Allowance surrendered</th>
+            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Balance</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row govuk-!-font-size-16">
             <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
-            <td class="govuk-table__cell">Allowance surrender</td>
-            <td class="govuk-table__cell">Surrender of 10,213 allowance units for 2018</td>
-            <td class="govuk-table__cell"><a href="#">Show details</a></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2012</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,938</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,938</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
           </tr>
           <tr class="govuk-table__row govuk-!-font-size-16">
             <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
-            <td class="govuk-table__cell">Emissions submission</td>
-            <td class="govuk-table__cell">Submission of emissions data for 2018</td>
-            <td class="govuk-table__cell"><a href="#">Show details</a></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2013</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,480</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,480</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
           </tr>
           <tr class="govuk-table__row govuk-!-font-size-16">
             <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
-            <td class="govuk-table__cell">Transfer out</td>
-            <td class="govuk-table__cell">Transfer of 2,913 units to Polimeri Europa UK Limited</td>
-            <td class="govuk-table__cell"><a href="#">Show details</a></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2014</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,960</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">3,050</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">90</td>
           </tr>
           <tr class="govuk-table__row govuk-!-font-size-16">
             <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
-            <td class="govuk-table__cell">Transfer in</td>
-            <td class="govuk-table__cell">Transfer of 25 units from Polimeri Europa UK Limited</td>
-            <td class="govuk-table__cell"><a href="#">Show details</a></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2015</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,560</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,470</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
           </tr>
 
-
+          <tr class="govuk-table__row govuk-!-font-size-16">
+            <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2016</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,638</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2,638</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+          </tr>
+          <tr class="govuk-table__row govuk-!-font-size-16">
+            <td class="govuk-table__cell" scope="row">23 Nov 2018</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2017</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">3,059</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">3,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">-41</td>
+          </tr>
 
         </tbody>
       </table>

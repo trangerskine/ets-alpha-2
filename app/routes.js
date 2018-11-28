@@ -35,4 +35,16 @@ router.post("/choose-installation-route", function(req,res){
 
 })
 
+router.post("/amount-surrender-route", function(req,res){
+
+  var amountToSurrender = req.session.data['surrender-radio']
+
+  if (amountToSurrender == "Everything"){
+    res.redirect("/confirmation-surrender")
+  } else if (amountToSurrender == "Other") {
+    res.redirect("/are-you-sure-surrender")
+  }
+
+})
+
 module.exports = router

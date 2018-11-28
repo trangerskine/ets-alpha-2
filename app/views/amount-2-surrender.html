@@ -20,7 +20,6 @@
       </h1>
       <form class="form" action="/check-2-surrender" method="post">
 
-      <p class="govuk-body" >You need to surrender <strong>2,160</strong> allowance for 2018 ETS compliance period. This figure is made up of your reported emissions for 2018 and any allowance you <a href="/transaction-history-transfer"> over surrendered or under surrendered from last year.</a></p>
       <p class="govuk-body"style="margin-bottom:30px">You need to surrender the full amount by 30 April 2019. If you don't have enough allowance you may need to <a href="#">acquire additional allowance</a>.</p>
 
       {% from "table/macro.njk" import govukTable %}
@@ -32,7 +31,7 @@
           </tr>
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row" style="    border-bottom-color: black;
-    border-bottom-width: 2px;">Your credit<br><span style="font-weight:normal !important;color: #6f777b;">You surrendered too much last year</span></th>
+    border-bottom-width: 2px;">Your credit<br><span style="font-weight:normal !important;color: #6f777b;">You surrendered too much last year. <a href="/transaction-history-transfer">Learn why</a></span></th>
             <td class="govuk-table__cell govuk-table__cell--numeric" style="border-bottom-color: black;
     border-bottom-width: 2px;padding-right:5px;">320</td>
           </tr>

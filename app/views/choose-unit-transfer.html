@@ -27,7 +27,7 @@
 
     <div class="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichunit-1" name="whichunit" type="radio" value="General unit" {{ checked ('whichunit', 'General unit')}}>
+        <input class="govuk-radios__input" id="whichunit-1" name="whichunit" type="radio" value="General allowance || 23871" {{ checked ('whichunit', 'General allowance || 23871')}}>
         <label class="govuk-label govuk-radios__label " for="whichunit-1">
           General allowance
         </label>
@@ -36,7 +36,7 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichunit-3" name="whichunit" type="radio" value="Assigned Amount Unit (AAU)" {{ checked ('whichunit', 'Assigned Amount Unit (AAU)')}}>
+        <input class="govuk-radios__input" id="whichunit-3" name="whichunit" type="radio" value="Certified Emissions Reductions (CER) || 138" {{ checked ('whichunit', 'Certified Emissions Reductions (CER) || 138')}}>
         <label class="govuk-label govuk-radios__label " for="whichunit-3">
           Certified Emissions Reductions (CER)
         </label>
@@ -45,7 +45,7 @@
         </span>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whichunit-2" name="whichunit" type="radio" value="Emission Reduction Unit (ERU)" {{ checked ('whichunit', 'Emission Reduction Unit (ERU)')}}>
+        <input class="govuk-radios__input" id="whichunit-2" name="whichunit" type="radio" value="Emission Reduction Unit (ERU) || 20" {{ checked ('whichunit', 'Emission Reduction Unit (ERU) || 20')}}>
         <label class="govuk-label govuk-radios__label " for="whichunit-2">
           Emission Reduction Unit (ERU)
         </label>
@@ -56,9 +56,29 @@
 
           </fieldset>
         </div>
-
+<input type="hidden" name="unitName" id="unitName">
+            <input type="hidden" name="allowanceUnitValue" id="allowanceUnitValue">
 
 <button class="govuk-button">Continue</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+  var value = $( "input[name=whichunit]:checked" ).val();
+  var split = value.split(' || ');
+  console.log(split)
+  $('#unitName').val( split[0] );
+  $('#allowanceUnitValue').val( split[1] );
+
+  $('input:radio').on('change',function(e){
+    value = $( "input[name=whichunit]:checked" ).val();
+    split = value.split(' || ');
+    console.log(split)
+    $('#unitName').val( split[0] );
+    $('#allowanceUnitValue').val( split[1] );
+  });
+</script>
 
 </form>
 

@@ -64,7 +64,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
+$(document).ready(function() {
   var value = $( "input[name=whichunit]:checked" ).val();
   var split = value.split(' || ');
   console.log(split)
@@ -78,6 +78,7 @@
     $('#unitName').val( split[0] );
     $('#allowanceUnitValue').val( split[1] );
   });
+});
 </script>
 
 </form>

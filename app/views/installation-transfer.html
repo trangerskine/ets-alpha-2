@@ -75,19 +75,24 @@
             <script>
             $(document).ready(function() {
               var value = $( "input[name=whichinstallation]:checked" ).val();
-              var split = value.split(' || ');
-              console.log(split)
-              $('#installationName').val( split[0] );
-              $('#allowanceValue').val( split[1] );
-              $('#allowanceIntlValue').val( split[2] );
-
-              $('input:radio').on('change',function(e){
-                value = $( "input[name=whichinstallation]:checked" ).val();
-                split = value.split(' || ');
-                console.log(split)
+              if ( value ) {
+                var split = value.split(' || ');
+                console.log(split);
                 $('#installationName').val( split[0] );
                 $('#allowanceValue').val( split[1] );
                 $('#allowanceIntlValue').val( split[2] );
+              }
+
+              $('input:radio').on('change',function(e){
+                value = $( "input[name=whichinstallation]:checked" ).val();
+                console.log(value);
+                if ( value ) {
+                  split = value.split(' || ');
+                  console.log(split)
+                  $('#installationName').val( split[0] );
+                  $('#allowanceValue').val( split[1] );
+                  $('#allowanceIntlValue').val( split[2] );
+                }
               });
             })
             </script>

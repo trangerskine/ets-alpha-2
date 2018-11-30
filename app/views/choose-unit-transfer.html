@@ -66,17 +66,21 @@
 <script>
 $(document).ready(function() {
   var value = $( "input[name=whichunit]:checked" ).val();
-  var split = value.split(' || ');
-  console.log(split)
-  $('#unitName').val( split[0] );
-  $('#allowanceUnitValue').val( split[1] );
-
-  $('input:radio').on('change',function(e){
-    value = $( "input[name=whichunit]:checked" ).val();
-    split = value.split(' || ');
+  if ( value ) {
+    var split = value.split(' || ');
     console.log(split)
     $('#unitName').val( split[0] );
     $('#allowanceUnitValue').val( split[1] );
+  }
+
+  $('input:radio').on('change',function(e){
+    value = $( "input[name=whichunit]:checked" ).val();
+    if ( value ) {
+      split = value.split(' || ');
+      console.log(split)
+      $('#unitName').val( split[0] );
+      $('#allowanceUnitValue').val( split[1] );
+    }
   });
 });
 </script>

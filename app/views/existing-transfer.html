@@ -49,9 +49,10 @@ input, select { display: block; }
     </select>
   </div>
 
+
   <div class="govuk-form-group">
     <label class="govuk-label" for="amount-1">
-      Amount{% if data['unitName'] %} of {{ data['unitName'] }} unit{% endif %}
+      Amount{% if data['unitName'] and data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' %} of {{ data['unitName'] }} unit{% endif %}
     </label>
     <span id="ID-hint" class="govuk-hint" >
       You will have <span id="newnumber">{{ newNumber }}</span> units of allowance after this transfer
@@ -65,7 +66,7 @@ input, select { display: block; }
       var amountYouHave;
       var amountYouWillHave;
 
-      if ( {{ data['allowanceUnitValue'] }} ) {
+      if ( {{ data['allowanceUnitValue'] and data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' }} ) {
         amountYouHave = {{ data['allowanceUnitValue'] }}
       } else {
         amountYouHave = {{ data['allowanceValue'] }}
@@ -74,7 +75,8 @@ input, select { display: block; }
       if ( number ) {
         amountYouWillHave = amountYouHave - number;
       } else if ( !number) {
-        number = 0
+        number = 0;
+        amountYouWillHave = amountYouHave;
       }
       
       $('#newnumber').text( amountYouWillHave );

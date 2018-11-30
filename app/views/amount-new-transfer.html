@@ -53,10 +53,13 @@ input, select { display: block; }
       var amountYouHave;
       var amountYouWillHave;
 
-      if ( {{ data['allowanceUnitValue'] and data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' }} ) {
-        amountYouHave = {{ data['allowanceUnitValue'] }}
+      var allowanceUnitValue = '{{ data["allowanceUnitValue"] }}';
+      var installationName = '{{ data["installationName"] }}';
+
+      if ( allowanceUnitValue && installationName == 'Scunthorpe Integrated Iron &amp; Steel Works' ) {
+        amountYouHave = '{{ data["allowanceUnitValue"] }}'
       } else {
-        amountYouHave = {{ data['allowanceValue'] }}
+        amountYouHave = '{{ data["allowanceValue"] }}'
       }
 
       if ( number ) {

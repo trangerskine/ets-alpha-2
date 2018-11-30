@@ -59,17 +59,21 @@ input, select { display: block; }
     </span>
     <input class="govuk-input govuk-input--width-5 myTextInput" id="amount-1" name="amount-1" type="number" value="{{ data['amount-1'] }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <script>
       
       var number = $('#amount-1').val();
       var amountYouHave;
       var amountYouWillHave;
 
-      if ( {{ data['allowanceUnitValue'] and data['installationName'] == 'Scunthorpe Integrated Iron & Steel Works' }} ) {
-        amountYouHave = {{ data['allowanceUnitValue'] }}
+      var allowanceUnitValue = '{{ data["allowanceUnitValue"] }}';
+      var installationName = '{{ data["installationName"] }}';
+
+      console.log(installationName);
+      if ( allowanceUnitValue && installationName == 'Scunthorpe Integrated Iron &amp; Steel Works' ) {
+        console.log('hi');
+        amountYouHave = '{{ data["allowanceUnitValue"] }}'
       } else {
-        amountYouHave = {{ data['allowanceValue'] }}
+        amountYouHave = '{{ data["allowanceValue"] }}'
       }
 
       if ( number ) {

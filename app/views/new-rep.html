@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Surrender emissions allowance (ETS)
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Enviroment</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Climate change and energy</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Emissions and emissions trading</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">
+  Adding a new representative
+</h1>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="emission-1">
+    Name
+    <span class="govuk-visually-hidden">line 1 of 2</span>
+  </label>
+  <input class="govuk-input govuk-input--width-10" id="emission-1" name="emission-1" type="number" value="{{ data['emission-1'] }}">
+</div>
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="emission-2">
+    Email address
+  </label>
+  <input class="govuk-input govuk-input--width-10" id="emission-2" name="emission-2" type="number" value="{{ data['emission-2'] }}">
+</div>
+</form>
+  </fieldset>
+</div>
+
+{% endblock %}

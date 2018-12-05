@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  Is this an installation on an aircraft operator?
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,32 +15,31 @@
 
       <form class="form" action="/amount-submit" method="post">
 
+        {{ govukRadios({
+          idPrefix: "is-aircraft-installation",
+          name: "is-aircraft-installation",
+          fieldset: {
+            legend: {
+              text: "Is this an installation on an aircraft operator?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              <h1 class="govuk-fieldset__heading">
-                Is this an installation on an aircraft operator?
-              </h1>
-            </legend>
-            <div class="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whichinstallation-1" name="whichinstallation" type="radio" value="Nevern Power Limited" {{ checked ('whichinstallation', 'Nevern Power Limited')}}>
-                <label class="govuk-label govuk-radios__label" for="which-installation-1">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works')}}>
-                <label class="govuk-label govuk-radios__label" for="whichinstallation-2">
-                  No
-                </label>
-
-            </div>
-          </fieldset>
-        </div>
-
-        <button class="govuk-button">Continue</button>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
 
       </form>
 

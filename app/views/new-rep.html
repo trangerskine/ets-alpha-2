@@ -29,27 +29,34 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl">
-  Adding a new representative
-</h1>
+  {% call govukFieldset({
+    legend: {
+      text: "Adding a new representative",
+      classes: "govuk-fieldset__legend--xl",
+      isPageHeading: true
+    }
+  }) %}
+    {{ govukInput({
+    label: {
+      text: "Name"
+    },
+    id: "new-rep-name",
+    name: "new-rep-name",
+    classes: 'govuk-input--width-10'
+  }) }}
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="emission-1">
-    Name
-    <span class="govuk-visually-hidden">line 1 of 2</span>
-  </label>
-  <input class="govuk-input govuk-input--width-10" id="emission-1" name="emission-1" type="number" value="{{ data['emission-1'] }}">
-</div>
+  {{ govukInput({
+    label: {
+      text: "Email"
+    },
+    id: "new-rep-email",
+    name: "new-rep-email",
+    classes: 'govuk-input--width-10'
+  }) }}
+  {% endcall %}
 
-
-<div class="govuk-form-group">
-  <label class="govuk-label" for="emission-2">
-    Email address
-  </label>
-  <input class="govuk-input govuk-input--width-10" id="emission-2" name="emission-2" type="number" value="{{ data['emission-2'] }}">
-</div>
-</form>
-  </fieldset>
-</div>
-
+  {{ govukButton({
+    text: "Continue",
+    href:'/'
+  }) }}
 {% endblock %}

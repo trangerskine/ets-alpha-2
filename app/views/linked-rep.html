@@ -33,37 +33,33 @@
   Your linked representative
 </h1>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading">
-        Add existing linked represenatvies
-      </h1>
-    </legend>
-    <span id="waste-hint" class="govuk-hint">
-      Select all that apply.
-    </span>
-    <div class="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="rep-1" name="rep1" type="checkbox" value="name1">
-        <label class="govuk-label govuk-checkboxes__label" for="rep-1">
-          Rep1
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="rep-2" name="rep2" type="checkbox" value="name2">
-        <label class="govuk-label govuk-checkboxes__label" for="rep-2">
-          Rep2
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="rep-3" name="rep3" type="checkbox" value="name3">
-        <label class="govuk-label govuk-checkboxes__label" for="rep-3">
-          Rep3
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
+{{ govukCheckboxes({
+  idPrefix: "waste",
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: "Add existing linked representatives",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "rep-1",
+      text: "Rep1"
+    },
+    {
+      value: "rep-2",
+      text: "Rep2"
+    },
+    {
+      value: "rep-3",
+      text: "Rep3"
+    }
+  ]
+}) }}
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  What is the name of your account?
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,66 +15,68 @@
 
       <form class="form" action="/amount-submit" method="post">
 
-        <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-        <h1 class="govuk-fieldset__heading">
-          What is the name of your account?
-        </h1>
-      </legend>
 
-      <div class="govuk-form-group">
-        
-        <label class="govuk-label" for="address-line-1">
+        {% call govukFieldset({
+          legend: {
+            text: "What is the name of your account?",
+            classes: "govuk-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        }) %}
 
-          <span class="govuk-visually-hidden">line 1 of 2</span>
-        </label>
-        <input class="govuk-input" id="address-line-1" name="address-line-1" type="text">
-      </div>
+          {{ govukInput({
+            label: {
+              text: 'What is the name of your account?',
+              classes:'govuk-visually-hidden'
+            },
+            id: "account-name",
+            name: "account-name"
+          }) }}
 
+          {% set yesAnswerHTML %}
+          {{ govukInput({
+            id: "account-d",
+            name: "account-d",
+            classes: "govuk-input--width-10",
+            label: {
+              text: 'Enter your ID number',
+              classes:'govuk-visually-hidden'
+            },
+            hint: {
+              text: "Your ID"
+            }
+          }) }}
+          {% endset -%}
 
+          {{ govukRadios({
+            idPrefix: "how-contacted-conditional",
+            name: "how-contacted",
+            fieldset: {
+              legend: {
+                text: "Has your account holder used ETS before?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: yesAnswerHTML
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
 
-    </fieldset>
-
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              <h1 class="govuk-fieldset__heading">
-            Has your account holder used ETS before?
-              </h1>
-            </legend>
-            <div class="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whichinstallation-1" name="whichinstallation" type="radio" value="Nevern Power Limited" {{ checked ('whichinstallation', 'Nevern Power Limited')}}>
-                <label class="govuk-label govuk-radios__label" for="which-installation-1">
-                  Yes
-                  </label>
-
-
-
-                  <div class="govuk-form-group">
-                      <input class="govuk-input govuk-input--width-5 number" id="amount-to-surrender" name="amount-to-surrender" type="text" style="text-align:right;font-family: "ntatabularnumbers", "nta", Arial, sans-serif;" value="{{ data['amount-to-surrender'] }}">
-
-                      <span id="balance" class="govuk-hint" style="margin-top:10px">
-                        Your ID
-                        </span>
-
-              </div>
-
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whichinstallation-2" name="whichinstallation" type="radio" value="Scunthorpe Integrated Iron & Steel Works" {{ checked ('whichinstallation', 'Scunthorpe Integrated Iron & Steel Works')}}>
-                <label class="govuk-label govuk-radios__label" for="whichinstallation-2">
-                  No
-                </label>
-
-            </div>
-          </fieldset>
-        </div>
-
-        <button class="govuk-button">Continue</button>
-
+           {{ govukButton({
+            text: "Continue"
+          }) }}
+        {% endcall %}
       </form>
 
     </div>

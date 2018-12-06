@@ -47,4 +47,10 @@ router.post("/amount-surrender-route", function(req,res){
 
 })
 
+// new routes
+router.get('/apply-for-an-account/:page', function (req, res, next) {
+  res.locals['serviceName'] = 'Apply for an ETS account'
+  next()
+})
+
 module.exports = router
